@@ -1,9 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useAuth } from "../context/AuthProvider";
 
 
 function Signup() {
+  const[ authUser,setAuthUser] = useAuth();
 
   const {
      register,
@@ -17,7 +19,7 @@ function Signup() {
       return value === password || " password and confirm password mismatch";
      }
    
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const userInfo ={
       name:data.name,
       email:data.email,
@@ -25,13 +27,14 @@ function Signup() {
       confirmpassword:data.confirmPassword,
     }
     // console.log(userInfo);
-    axios.post("http://localhost:5002/user/signup",userInfo)
+     await axios.post("http://localhost:5002/user/signup",userInfo)
     .then((response)=>{
       console.log(response.data);
       if(response.data){
-        alert("user created successfully");
+        alert("Signup successfully You can now log in ");
       }
       localStorage.setItem("messenger",JSON.stringify(response.data));
+      setAuthUser(response.data);
     })
     .catch((error)=>{
       // console.log(error);

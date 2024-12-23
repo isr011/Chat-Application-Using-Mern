@@ -28,7 +28,11 @@ try {
 
 
             res.status(201).json({message:"user registered successfully",
-                newUser
+                user :{
+                    _id :newUser._id,
+                    name:newUser.name,
+                    email:newUser.email,
+                }
             })
          }
     
