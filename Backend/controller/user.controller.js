@@ -27,7 +27,9 @@ try {
             createTokenAndSaveCookie(newUser._id,res);
 
 
-            res.status(201).json({message:"user registered successfully",newUser})
+            res.status(201).json({message:"user registered successfully",
+                newUser
+            })
          }
     
          
@@ -51,7 +53,8 @@ try {
 
         }
         createTokenAndSaveCookie(user._id,res);
-        res.status(201).json({message:"user logged in successfully",user :{
+        res.status(201).json({message:"user logged in successfully",
+            user :{
             _id :user._id,
             name:user.name,
             email:user.email,
