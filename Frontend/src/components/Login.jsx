@@ -1,10 +1,15 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useAuth } from "../context/AuthProvider";
+import { Link } from 'react-router-dom';
+
 
 
 
 function Login() {
+    const[ authUser,setAuthUser] = useAuth();
+  
   const {
        register,
         handleSubmit,
@@ -26,6 +31,8 @@ function Login() {
         alert("Login successfull ");
       }
       localStorage.setItem("messenger",JSON.stringify(response.data));
+      setAuthUser(response.data);
+
     })
     .catch((error)=>{
       // console.log(error);
@@ -105,9 +112,9 @@ function Login() {
             <p>
           {" "}
           Don't have any Account ?{" "}
-          <span className="text-blue-500 underline cursor-pointer ml-1">
+          <Link to={"/signup"} className="text-blue-500 underline cursor-pointer ml-1">
             Signup
-          </span>
+          </Link>
         </p>
               
               <input type="submit" value="Login" className="text-white bg-blue-600 cursor-pointer w-full rounded-lg"></input>
@@ -128,3 +135,5 @@ function Login() {
 }
 
 export default Login
+
+//2.49hrs
