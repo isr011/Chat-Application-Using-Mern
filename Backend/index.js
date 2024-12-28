@@ -24,7 +24,7 @@ try {
     
 }
 
-app.use("/user",userRoute)
+app.use("/api/user",userRoute)
 
 
 app.listen(PORT, () => {
