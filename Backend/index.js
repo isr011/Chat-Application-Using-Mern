@@ -4,6 +4,7 @@ import mongoose  from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors"
 import userRoute from "./route/user.route.js"
+import messageRoute from "./route/message.route.js"
 const app = express()
 dotenv.config();
 
@@ -25,6 +26,7 @@ try {
 }
 
 app.use("/api/user",userRoute)
+app.use("/api/message",messageRoute)
 
 
 app.listen(PORT, () => {
