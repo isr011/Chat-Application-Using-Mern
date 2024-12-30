@@ -1,10 +1,10 @@
 import React from 'react'
-import useConversation from '../../statemanage/useConversation.js';
+import useConversation from '../../stateManage/useConversation.js';
 
 
 function User({user}) {
   const { selectedConversation, setSelectedConversation } = useConversation();
-  const isSelected = selectedConversation?._id === user._id;
+  const isSelected = selectedConversation ?._id === user._id;
   
 
   

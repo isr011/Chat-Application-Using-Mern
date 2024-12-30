@@ -7,7 +7,7 @@ function Message() {
   const { loading, messages } = useGetMessage();
  
  
-  console.log( messages);
+  // console.log( messages);
 
   return (
     <>
